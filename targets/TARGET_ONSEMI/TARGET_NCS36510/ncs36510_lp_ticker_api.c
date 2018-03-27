@@ -7,11 +7,11 @@
  * $Rev:  $
  * $Date: $
  ******************************************************************************
- * Copyright 2016 Semiconductor Components Industries LLC (d/b/a “ON Semiconductor”).
+ * Copyright 2016 Semiconductor Components Industries LLC (d/b/a ï¿½ON Semiconductorï¿½).
  * All rights reserved.  This software and/or documentation is licensed by ON Semiconductor
  * under limited terms and conditions.  The terms and conditions pertaining to the software
  * and/or documentation are available at http://www.onsemi.com/site/pdf/ONSEMI_T&C.pdf
- * (“ON Semiconductor Standard Terms and Conditions of Sale, Section 8 Software”) and
+ * (ï¿½ON Semiconductor Standard Terms and Conditions of Sale, Section 8 Softwareï¿½) and
  * if applicable the software license agreement.  Do not use this software and/or
  * documentation unless you have carefully read and you agree to the limited terms and
  * conditions.  By using this software and/or documentation, you agree to the limited
@@ -42,25 +42,25 @@
 /* Initialize the RTC for low power ticker */
 void lp_ticker_init()
 {
-    fRtcInit();
+    // fRtcInit();
 }
 
 /* Return the current RTC counter value in us */
 uint32_t lp_ticker_read()
 {
-    return (uint32_t)(fRtcRead() & 0xFFFFFFFF); /* TODO Truncating 64 bit value to 32 bit */
+    // return (uint32_t)(fRtcRead() & 0xFFFFFFFF); /* TODO Truncating 64 bit value to 32 bit */
 }
 
 /* Set interrupt for specified time */
 void lp_ticker_set_interrupt(timestamp_t timestamp)
 {
     /* The RTC Match register needs to be Set to the RTC alarm value */
-    fRtcSetInterrupt(timestamp);
+    // fRtcSetInterrupt(timestamp);
 }
 
 void lp_ticker_fire_interrupt(void)
 {
-    NVIC_SetPendingIRQ(Rtc_IRQn);
+    // NVIC_SetPendingIRQ(Rtc_IRQn);
 }
 
 /** Disable low power ticker interrupt
@@ -68,7 +68,7 @@ void lp_ticker_fire_interrupt(void)
  */
 void lp_ticker_disable_interrupt(void)
 {
-    fRtcDisableInterrupt();
+    // fRtcDisableInterrupt();
 }
 
 /** Clear the low power ticker interrupt
@@ -76,7 +76,7 @@ void lp_ticker_disable_interrupt(void)
  */
 void lp_ticker_clear_interrupt(void)
 {
-    fRtcClearInterrupt();
+    // fRtcClearInterrupt();
 }
 
 #endif /* DEVICE_LOWPOWERTIMER */

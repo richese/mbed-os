@@ -7,11 +7,11 @@
  * $Rev: 3485 $
  * $Date: 2015-07-14 15:20:11 +0530 (Tue, 14 Jul 2015) $
  ******************************************************************************
- * Copyright 2016 Semiconductor Components Industries LLC (d/b/a “ON Semiconductor”).
+ * Copyright 2016 Semiconductor Components Industries LLC (d/b/a ï¿½ON Semiconductorï¿½).
  * All rights reserved.  This software and/or documentation is licensed by ON Semiconductor
  * under limited terms and conditions.  The terms and conditions pertaining to the software
  * and/or documentation are available at http://www.onsemi.com/site/pdf/ONSEMI_T&C.pdf
- * (“ON Semiconductor Standard Terms and Conditions of Sale, Section 8 Software”) and
+ * (ï¿½ON Semiconductor Standard Terms and Conditions of Sale, Section 8 Softwareï¿½) and
  * if applicable the software license agreement.  Do not use this software and/or
  * documentation unless you have carefully read and you agree to the limited terms and
  * conditions.  By using this software and/or documentation, you agree to the limited
@@ -61,23 +61,20 @@
 #define SUB_SEC_MASK    0x7FFF
 
 
-/* FUnction pointer for call back */
-typedef void (* fRtcCallBack)(void);
-
 /**
  * @details
- * Initializes RTC, enable RTC & register call back function
+ * Initializes RTC if it is not already counting.
  *
- * @param RtcCallBack Function pointer for RTC call back funtion
  * @return None
  */
 void fRtcInit(void);
 
 /**
  * @details
- * Disable RTC
+ * Disables peripheral clock to RTC.
  *
- * @param None
+ * RTC will continue counting but wont be accessible from CPU.
+ *
  * @return None
  */
 void fRtcFree(void);
@@ -89,7 +86,7 @@ void fRtcFree(void);
  * @param TimeStamp in micro seconds
  * @return None
  */
-void fRtcSetInterrupt(uint32_t timestamp);
+//void fRtcSetInterrupt(uint32_t timestamp);
 
 /**
  * @details
@@ -98,7 +95,7 @@ void fRtcSetInterrupt(uint32_t timestamp);
  * @param None
  * @return None
  */
-void fRtcDisableInterrupt(void);
+//void fRtcDisableInterrupt(void);
 
 /**
  * @details
@@ -107,7 +104,7 @@ void fRtcDisableInterrupt(void);
  * @param None
  * @return None
  */
-void fRtcEnableInterrupt(void);
+//void fRtcEnableInterrupt(void);
 
 /**
  * @details
@@ -116,25 +113,25 @@ void fRtcEnableInterrupt(void);
  * @param None
  * @return None
  */
-void fRtcClearInterrupt(void);
+//void fRtcClearInterrupt(void);
 
 /**
  * @details
- * Returns RTC time in micro seconds
+ * Returns RTC time in seconds
  *
  * @param None
- * @return RTC Time in micro second
+ * @return RTC Time in seconds
  */
-uint64_t fRtcRead(void);
+time_t fRtcRead(void);
 
 /**
  * @details
- * Set RTC time in micro seconds
+ * Set RTC time in seconds.
  *
- * @param RtcTime in micro Seconds
+ * @param RtcTime in seconds.
  * @return None
  */
-void fRtcWrite(uint64_t RtcTimeus);
+void fRtcWrite(time_t RtcTime);
 
 /**
  * @details
@@ -143,14 +140,16 @@ void fRtcWrite(uint64_t RtcTimeus);
  * @param None
  * @return None
  */
-void fRtcHandler(void);
+//void fRtcHandler(void);
 
 /**
  * @details
- * Is RTC enabled?
+ * Returns whether RTC clock is running.
  *
  * @param None
  * @return RTC status
  */
-boolean fIsRtcEnabled(void);
+int fIsRtcEnabled(void);
+
+
 #endif /* RTC_H_ */

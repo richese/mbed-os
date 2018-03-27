@@ -7,11 +7,11 @@
 * $Rev: 0.1 $
 * $Date: 2016-01-20 12:09:00 +0530 (Wed, 20 Jan 2016) $
 ******************************************************************************
- * Copyright 2016 Semiconductor Components Industries LLC (d/b/a “ON Semiconductor”).
+ * Copyright 2016 Semiconductor Components Industries LLC (d/b/a ï¿½ON Semiconductorï¿½).
  * All rights reserved.  This software and/or documentation is licensed by ON Semiconductor
  * under limited terms and conditions.  The terms and conditions pertaining to the software
  * and/or documentation are available at http://www.onsemi.com/site/pdf/ONSEMI_T&C.pdf
- * (“ON Semiconductor Standard Terms and Conditions of Sale, Section 8 Software”) and
+ * (ï¿½ON Semiconductor Standard Terms and Conditions of Sale, Section 8 Softwareï¿½) and
  * if applicable the software license agreement.  Do not use this software and/or
  * documentation unless you have carefully read and you agree to the limited terms and
  * conditions.  By using this software and/or documentation, you agree to the limited
@@ -39,35 +39,30 @@
 #include "rtc.h"
 #include "cmsis_nvic.h"
 
-/* See rtc_apc.h for description */
 
 void rtc_init(void)
 {
-    fRtcInit();
+     fRtcInit();
 }
 
-/* See rtc_apc.h for description */
 void rtc_free(void)
 {
-    fRtcFree();
+     fRtcFree();
 }
 
-/* See rtc_apc.h for description */
 int rtc_isenabled(void)
 {
-    return(fIsRtcEnabled());
+     return(fIsRtcEnabled());
 }
 
-/* See rtc_apc.h for description */
 time_t rtc_read(void)
 {
-    return (uint32_t)(fRtcRead() & 0xFFFFFFFF); /* TODO Truncating 64 bit value to 32 bit */
+    return fRtcRead();
 }
 
-/* See rtc_apc.h for description */
 void rtc_write(time_t t)
 {
-    fRtcWrite(t);
+     fRtcWrite(t);
 }
 
 #endif /* DEVICE_RTC */
